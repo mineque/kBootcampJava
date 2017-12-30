@@ -15,5 +15,6 @@ public class ForumTestSuite {
         String result = simpleUser.getUsername();
         //Then
         Assert.assertEquals("theForumUser", result);
+        System.out.println("OK");
     }
 }
