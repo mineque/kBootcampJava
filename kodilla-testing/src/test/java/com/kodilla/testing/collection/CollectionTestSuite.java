@@ -39,7 +39,5 @@ public class CollectionTestSuite {
         List<Integer>  result = ex.exterminate(Ints);
         //then
         Assert.assertEquals(50, result.size());
-
-
     }
 }
