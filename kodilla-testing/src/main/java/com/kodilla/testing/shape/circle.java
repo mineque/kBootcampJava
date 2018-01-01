@@ -23,4 +23,20 @@ public class circle implements Shape {
                 "r=" + r +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        circle circle = (circle) o;
+
+        return Double.compare(circle.r, r) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        long temp = Double.doubleToLongBits(r);
+        return (int) (temp ^ (temp >>> 32));
+    }
 }
