@@ -1,15 +1,10 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.lambda.Processor;
 import com.kodilla.stream.person.People;
-import com.kodilla.stream.reference.FunctionalCalculator;
 
 public class StreamMain {
     public static void main(String[] args) {
-        Processor processor = new Processor();
+      /*  Processor processor = new Processor();
         processor.execute(() -> System.out.println("This is an example text."));
 
         ExpressionExecutor expressionExecutor = new ExpressionExecutor();
@@ -33,11 +28,10 @@ public class StreamMain {
         poemo.beautify("BLA BLA", (text) -> text.toLowerCase());
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+        NumbersGenerator.generateEven(20);*/
 
         People.getList().stream()
-                .map(String::toUpperCase)
-                .forEach(s -> System.out.println(s));
-
+                .filter(s -> s.length() > 11)
+                .forEach(System.out::println);
     }
 }
