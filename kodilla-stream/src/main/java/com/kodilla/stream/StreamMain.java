@@ -36,8 +36,8 @@ public class StreamMain {
         NumbersGenerator.generateEven(20);
 
         People.getList().stream()
-                .map(s -> s.toUpperCase())
-                .forEach(System.out::println);
+                .map(String::toUpperCase)
+                .forEach(s -> System.out.println(s));
 
     }
 }
