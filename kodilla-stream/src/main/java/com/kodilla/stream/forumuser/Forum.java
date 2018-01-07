@@ -12,7 +12,7 @@ public final class Forum {
         users.add(new ForumUser(3,"user3",'F', 2000, 10,20,4));
         users.add(new ForumUser(4,"user4",'m', 1986, 10,20,0));
         users.add(new ForumUser(5,"user5",'m', 1999, 10,20,0));
-        users.add(new ForumUser(6,"user6",'f', 1995, 10,20,3));
+        users.add(new ForumUser(6,"user6",'M', 1995, 10,20,3));
         users.add(new ForumUser(7,"user7",'f', 2001, 10,20,2));
         users.add(new ForumUser(8,"user8",'M', 2002, 10,20,1));
 

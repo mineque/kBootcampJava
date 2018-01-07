@@ -28,10 +28,31 @@ import java.time.LocalDate;
 
 public final class ForumUser {
         private final int userId;
-        private String username;
-        private char sex;
-        private LocalDate bDay;
-        private int postCounter;
+        private final String username;
+        private final char sex;
+        private LocalDate bDay = null;
+        private final int postCounter;
+
+
+    public ForumUser(int userId, String username, final char sex, final int year, final int month, final int
+            dayOfMonth, int postCounter) {
+        this.userId = userId;
+        this.username = username;
+        switch (sex) {
+            case 'M':
+            case 'F':
+            case 'm':
+            case 'f':
+                this.sex = sex;
+                break;
+            default:
+                this.sex = '0';
+
+        }
+        this.bDay = LocalDate.of(year, month, dayOfMonth);
+        this.postCounter = postCounter;
+
+    }
 
     public char getSex() {
         return sex;
@@ -47,23 +68,6 @@ public final class ForumUser {
 
     public int getUserId() {
         return userId;
-    }
-
-    public ForumUser(int userId, String username, final char sex, final int year, final int month, final int
-            dayOfMonth, int postCounter) {
-        this.userId = userId;
-        this.username = username;
-        switch (sex) {
-            case 'M':
-            case 'F':
-            case 'm':
-            case 'f':
-                this.sex = sex;
-                break;
-        }
-        this.bDay.of(year, month, dayOfMonth);
-        this.postCounter = postCounter;
-
     }
 
     @Override
