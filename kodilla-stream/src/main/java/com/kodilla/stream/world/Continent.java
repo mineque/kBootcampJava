@@ -1,12 +1,22 @@
 package com.kodilla.stream.world;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Continent {
 
-    ArrayList<Country> countries = new ArrayList<>();
+    private List<Country> countries = new ArrayList<>();
+    private String continentName;
 
-    public Continent(ArrayList<Country> countries) {
-        this.countries = countries;
+    public Continent(String continentName) {
+        this.continentName = continentName;
+    }
+
+    public List<Country> getCountries() {
+        return countries;
+    }
+
+    public String getContinentName() {
+        return continentName;
     }
 }
