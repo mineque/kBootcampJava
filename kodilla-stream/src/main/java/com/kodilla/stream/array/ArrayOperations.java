@@ -18,7 +18,7 @@ public interface ArrayOperations {
                 .average();
 
         double value = average.orElse(0);
-        return value;
+        return value;sp
     }
 
 
