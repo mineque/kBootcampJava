@@ -21,6 +21,8 @@ public class FileReader {
 
             System.out.println("Sth goes wrong\n"+ e);
 
+        } finally {
+            System.out.println("Always with you");
         }
 
     }
