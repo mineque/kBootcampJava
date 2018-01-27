@@ -1,7 +1,11 @@
+package com.kodilla.good.patterns.challenges;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 
 class MovieStore {
 
@@ -28,6 +32,12 @@ class MovieStore {
     }
 
     public static void main(String[] args) {
+        MovieStore store = new MovieStore();
+        String list = store.getMovies().entrySet().stream()
+            .flatMap(title -> title.getValue().stream())
+            .collect(Collectors.joining(" ! ","", ""));
+
+        System.out.println(list);
 
     }
 }
