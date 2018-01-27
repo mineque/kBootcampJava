@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class FlightFinder {
 
-    public void findFlight(Flight flight) throws RouteNotFoundException{
+    public boolean findFlight(Flight flight) throws RouteNotFoundException{
         HashMap<String, Boolean> airportAvailability = new HashMap<>();
 
         airportAvailability.put("Warsaw", true);
@@ -16,7 +16,7 @@ public class FlightFinder {
         } catch (Exception e) {
             throw new RouteNotFoundException();
         }
-        System.out.println("Flight found");
+        return ok;
 
 
     }
@@ -28,14 +28,16 @@ public class FlightFinder {
 
         try {
             System.out.println("AtoB:");
-            searcher.findFlight(AtoB);
+            boolean result = searcher.findFlight(AtoB);
+            System.out.println("Flight available: " + result);
         } catch (RouteNotFoundException e) {
             System.out.println("At least one airport is not available");
         }
 
         try {
             System.out.println("CtoD:");
-            searcher.findFlight(CtoD);
+            boolean result = searcher.findFlight(CtoD);
+            System.out.println("Flight available: " + result);
         } catch (RouteNotFoundException e) {
             System.out.println("At least one airport is not available");
         }
