@@ -19,12 +19,13 @@ public class BoardTestSuite {
         //When
 
         board.doneList.addTask("Zadanko zakonczone");
-        board.toDoList.addTask("Zadanko do zrobienia");
+       // board.toDoList.addTask("Zadanko do zrobienia");
         board.inProgressList.addTask("Zadanko w trakcie");
 
         //Then
 
-        TaskList<String> list = board.doneList;
-
+        System.out.println("Wykonano: " + board.doneList.getTasks().size());
+        System.out.println("Do zrobienia: " + board.toDoList.getTasks().size());
+        System.out.println("W trakcie: " + board.inProgressList.getTasks().size());
     }
 }
