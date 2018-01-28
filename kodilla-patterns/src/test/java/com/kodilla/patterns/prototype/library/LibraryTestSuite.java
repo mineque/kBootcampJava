@@ -57,7 +57,7 @@ public class LibraryTestSuite {
         lib.remBook(book1);
 
         Assert.assertEquals(2,lib.libSize());
-
+        Assert.assertEquals(2,libshallow.libSize());
 
 
         System.out.println("Library has size: " + lib.libSize());
