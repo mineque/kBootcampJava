@@ -39,6 +39,9 @@ public class LibraryTestSuite {
         System.out.println("Books in Shallow:");
         libshallow.getBooks();
 
+        Assert.assertEquals(3,libshallow.libSize());
+
+
         Library libDeep = null;
         try {
             libDeep = lib.deepCopy();
@@ -46,11 +49,16 @@ public class LibraryTestSuite {
             System.out.println("Exception");
         }
 
-
         int size2 = libDeep.libSize();
         System.out.println("LibraryDeep has size: " + size2);
 
+        Assert.assertEquals(3,libDeep.libSize());
+
         lib.remBook(book1);
+
+        Assert.assertEquals(2,lib.libSize());
+
+
 
         System.out.println("Library has size: " + lib.libSize());
         System.out.println("Books in library:");
@@ -60,7 +68,7 @@ public class LibraryTestSuite {
         System.out.println("LibraryDeep has size: " + size2);
 
 
-//        Assert.assertEquals(3,size2);
+        Assert.assertEquals(3,size2);
     }
 
 }
