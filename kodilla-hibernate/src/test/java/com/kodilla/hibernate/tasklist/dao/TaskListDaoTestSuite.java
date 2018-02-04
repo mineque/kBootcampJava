@@ -29,6 +29,7 @@ public class TaskListDaoTestSuite {
         TaskList readList = taskListDao.findOne(id);
         Assert.assertEquals(id, readList.getId());
 
+        //CLEANUP
         taskListDao.delete(id);
     }
 

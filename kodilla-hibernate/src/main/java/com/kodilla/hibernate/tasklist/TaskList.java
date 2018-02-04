@@ -30,7 +30,8 @@ public class TaskList {
     public void setId(int id) {
         this.id = id;
     }
-    @Column (name = "LISTNAME", nullable = false)
+    @NotNull
+    @Column (name = "LISTNAME")
     public String getListName() {
         return listName;
     }
