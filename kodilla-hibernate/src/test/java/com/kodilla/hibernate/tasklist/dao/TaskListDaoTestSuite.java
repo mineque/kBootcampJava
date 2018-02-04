@@ -14,20 +14,22 @@ public class TaskListDaoTestSuite {
 
     @Autowired
     private TaskListDao taskListDao;
-    private static final String DESCRIPTION = "cos cos cos";
+    private static final String LISTNAME = "ToDo";
 
     @Test
     public void testFindByListName(){
         //GIVEN
-        TaskList list = new TaskList("ToDo");
+        TaskList list = new TaskList(LISTNAME);
         //WHEN
         taskListDao.save(list);
 
         //THEN
 
         int id = list.getId();
-        TaskList readList = taskListDao.findOne(id);
-        Assert.assertEquals(id, readList.getId());
+        String name = list.getListName();
+
+        TaskList readList = taskListDao.findByListName(LISTNAME);
+        Assert.assertEquals(name, readList.getListName());
 
         //CLEANUP
         taskListDao.delete(id);
