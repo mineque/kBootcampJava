@@ -42,10 +42,10 @@ public class Invoice {
     }
 
     @OneToMany(
-             targetEntity = InvoiceItem.class,
-            mappedBy = "invoice",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+        targetEntity = InvoiceItem.class,
+        mappedBy = "id",
+        cascade = CascadeType.ALL,
+        fetch = FetchType.LAZY
     )
     public List<InvoiceItem> getInvoiceItems() {
         return invoiceItems;
