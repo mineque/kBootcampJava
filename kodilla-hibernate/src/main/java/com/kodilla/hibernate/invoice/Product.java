@@ -39,13 +39,4 @@ public class Product {
         this.name = name;
     }
 
-
-    @ManyToOne
-    public InvoiceItem getInvoiceItem() {
-        return invoiceItem;
-    }
-
-    public void setInvoiceItem(InvoiceItem invoiceItem) {
-        this.invoiceItem = invoiceItem;
-    }
 }
