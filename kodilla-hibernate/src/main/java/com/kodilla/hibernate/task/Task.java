@@ -6,6 +6,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "Task.retrieveLongTask",
+                query = "FROM Task WHERE duration > 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveShortTask",
+                query = "FROM Task WHERE duration <= 10"
+        )
+})
 @Entity
 @Table(name = "TASKS")
 public final class Task {
