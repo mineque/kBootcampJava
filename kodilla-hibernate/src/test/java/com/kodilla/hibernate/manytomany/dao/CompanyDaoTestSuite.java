@@ -14,6 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany(){
@@ -51,13 +53,15 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
 
+        Assert.assertEquals(1,employeeDao.lookForName("Smith").size());
+
         //CleanUp
-                //try {
-            //    companyDao.delete(softwareMachineId);
-            //    companyDao.delete(dataMaestersId);
-            //    companyDao.delete(greyMatterId);
-            //} catch (Exception e) {
-            //    //do nothing
-            //}
+                try {
+                companyDao.delete(softwareMachineId);
+                companyDao.delete(dataMaestersId);
+                companyDao.delete(greyMatterId);
+            } catch (Exception e) {
+                //do nothing
+            }
         }
     }
