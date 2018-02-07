@@ -55,6 +55,8 @@ public class CompanyDaoTestSuite {
 
         Assert.assertEquals(1,employeeDao.lookForName("Smith").size());
 
+        Assert.assertEquals(1,companyDao.MathCompanyName("Software" + "%").size());
+
         //CleanUp
                 try {
                 companyDao.delete(softwareMachineId);
