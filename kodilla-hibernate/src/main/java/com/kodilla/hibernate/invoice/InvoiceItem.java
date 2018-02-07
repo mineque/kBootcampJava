@@ -7,10 +7,7 @@ import java.math.BigDecimal;
 @NamedQuery(
         name = "InvoiceItem.quantityBiggerThanTen",
         query = "FROM InvoiceItem WHERE quantity > 10 AND invoice = :INVOICE"
-
-
 )
-
 
 @Entity
 @Table
@@ -44,7 +41,6 @@ public class InvoiceItem {
     public void setId(int id) {
         this.id = id;
     }
-
 
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
