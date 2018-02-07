@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 public class Product {
     private int id;
     private String name;
+    private InvoiceItem invoiceItem;
 
     public Product(String name) {
         this.name = name;
@@ -36,5 +37,15 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    @ManyToOne
+    public InvoiceItem getInvoiceItem() {
+        return invoiceItem;
+    }
+
+    public void setInvoiceItem(InvoiceItem invoiceItem) {
+        this.invoiceItem = invoiceItem;
     }
 }
