@@ -11,8 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,10 +18,17 @@ public class InvoiceDaoTestSuite {
 
     @Autowired
     private InvoiceDao invoiceDao;
+    @Autowired
+    private ProductDao productDao;
+    @Autowired
+    private InvoiceItemDao invoiceItemDao;
+
+
     @Test
     public void testInvoiceDaoSave() {
 
         //GIVEN
+
         Product product1 = new Product("product1");
         Product product2 = new Product("product2");
         Product product3 = new Product("product3");
@@ -42,20 +47,38 @@ public class InvoiceDaoTestSuite {
         invoiceItem4.setProduct(product4);
         invoiceItem5.setProduct(product5);
 
-        List<InvoiceItem> invoiceItems = new ArrayList<>();
-        invoiceItems.add(invoiceItem1);
-        invoiceItems.add(invoiceItem2);
-        invoiceItems.add(invoiceItem3);
-        invoiceItems.add(invoiceItem4);
-        invoiceItems.add(invoiceItem5);
 
-        Invoice invoice = new Invoice("12345", invoiceItems);
+        Invoice invoice = new Invoice("12345");
+
+        invoiceItem1.setInvoice(invoice);
+        invoiceItem2.setInvoice(invoice);
+        invoiceItem3.setInvoice(invoice);
+        invoiceItem4.setInvoice(invoice);
+        invoiceItem5.setInvoice(invoice);
+
 
         //WHEN
+        productDao.save(product1);
+        productDao.save(product2);
+        productDao.save(product3);
+        productDao.save(product4);
+        productDao.save(product5);
+
         invoiceDao.save(invoice);
 
-        //THEN
+        invoiceItemDao.save(invoiceItem1);
+        invoiceItemDao.save(invoiceItem2);
+        invoiceItemDao.save(invoiceItem3);
+        invoiceItemDao.save(invoiceItem4);
+        invoiceItemDao.save(invoiceItem5);
 
-        Assert.assertEquals(5,invoiceDao.countByInvoiceItems());
+
+        //THEN
+        int itemId = invoiceItem1.getId();
+        int invoiceId = invoice.getId();
+
+        Assert.assertNotEquals(0,itemId);
+        Assert.assertNotEquals(0,invoiceId);
+        Assert.assertEquals(5,invoiceItemDao.countByInvoice(invoice));
     }
 }
