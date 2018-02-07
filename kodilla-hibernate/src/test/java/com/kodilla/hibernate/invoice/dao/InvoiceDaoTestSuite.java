@@ -80,5 +80,7 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0,itemId);
         Assert.assertNotEquals(0,invoiceId);
         Assert.assertEquals(5,invoiceItemDao.countByInvoice(invoice));
+
+        Assert.assertEquals(4,invoiceItemDao.quantityBiggerThanTen(invoice).size());
     }
 }

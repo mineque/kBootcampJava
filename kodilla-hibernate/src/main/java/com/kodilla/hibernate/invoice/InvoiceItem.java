@@ -4,6 +4,14 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+@NamedQuery(
+        name = "InvoiceItem.quantityBiggerThanTen",
+        query = "FROM InvoiceItem WHERE quantity > 10 AND invoice = :INVOICE"
+
+
+)
+
+
 @Entity
 @Table
 public class InvoiceItem {
